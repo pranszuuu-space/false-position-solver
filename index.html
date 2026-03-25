@@ -42,6 +42,37 @@ h1{font-family:'DM Serif Display',serif;font-size:clamp(2.4rem,5.5vw,4.2rem);lin
 .subtitle{color:var(--text2);font-size:14px;letter-spacing:0.3px;max-width:620px;margin:0 auto;line-height:1.7;}
 .header-line{width:80px;height:1px;margin:26px auto 0;background:linear-gradient(90deg,transparent,var(--accent),transparent);}
 
+/* PRESENTER BADGE */
+.presenter-tag{
+  display:inline-flex;align-items:center;gap:10px;
+  margin-top:22px;
+  background:linear-gradient(135deg,rgba(233,30,140,0.10),rgba(190,24,93,0.06));
+  border:1px solid rgba(233,30,140,0.35);
+  border-radius:40px;
+  padding:10px 24px;
+  font-family:'Space Mono',monospace;
+  font-size:11px;
+  color:var(--text2);
+  letter-spacing:1.5px;
+  box-shadow:0 2px 18px rgba(233,30,140,0.10);
+  animation:fadeUp .6s ease .3s both;
+}
+.presenter-tag .pt-label{
+  font-size:8px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--accent);
+  border-right:1px solid var(--border2);
+  padding-right:10px;
+  white-space:nowrap;
+}
+.presenter-tag .pt-names{
+  color:var(--text);
+  font-weight:700;
+  font-size:12px;
+  letter-spacing:1px;
+}
+
 /* SECTION LABEL */
 .sec-lbl{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;
   color:var(--accent);margin-bottom:16px;display:flex;align-items:center;gap:10px;}
@@ -260,11 +291,7 @@ td:first-child{text-align:center;}
 
 /* ── MOBILE (≤480px) ─────────────────────────────────────── */
 @media(max-width:480px){
-
-  /* Page */
   .page{padding:20px 14px 72px;}
-
-  /* Header */
   header{margin-bottom:28px;padding-top:4px;}
   .badge-row{gap:6px;margin-bottom:12px;}
   .badge{font-size:8px;letter-spacing:1.5px;padding:4px 10px;}
@@ -272,12 +299,11 @@ td:first-child{text-align:center;}
   h1 em{font-size:0.78em;}
   .subtitle{font-size:12px;line-height:1.6;}
   .header-line{margin-top:16px;}
-
-  /* Cards */
+  .presenter-tag{font-size:9px;padding:8px 16px;gap:7px;margin-top:16px;}
+  .presenter-tag .pt-label{font-size:7px;letter-spacing:2px;}
+  .presenter-tag .pt-names{font-size:10px;}
   .card{padding:16px 14px;border-radius:14px;}
   .card-title{font-size:8px;letter-spacing:2px;margin-bottom:14px;}
-
-  /* How it works */
   .steps-row{grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px;}
   .step-card{padding:14px 12px;}
   .step-num{font-size:1.8rem;top:5px;right:8px;}
@@ -285,71 +311,30 @@ td:first-child{text-align:center;}
   .step-title{font-size:9px;letter-spacing:1px;margin-bottom:6px;}
   .step-body{font-size:11px;line-height:1.55;}
   .step-formula{font-size:9px;padding:3px 7px;word-break:break-all;display:block;margin-top:7px;}
-
-  /* Syntax grid */
   .syntax-grid{grid-template-columns:1fr 1fr;gap:6px;margin-top:12px;}
   .syntax-item{padding:7px 10px;border-radius:7px;}
   .syntax-code{font-size:10px;}
   .syntax-desc{font-size:9px;line-height:1.4;}
-
-  /* Section label */
   .sec-lbl{font-size:8px;letter-spacing:2px;margin-bottom:10px;}
-
-  /* Inputs — font-size 16px prevents iOS auto-zoom */
-  input[type=text],input[type=number]{
-    font-size:16px;
-    padding:14px 13px;
-    margin-bottom:14px;
-    border-radius:10px;
-    -webkit-appearance:none;
-  }
+  input[type=text],input[type=number]{font-size:16px;padding:14px 13px;margin-bottom:14px;border-radius:10px;-webkit-appearance:none;}
   label{font-size:8px;letter-spacing:1.5px;margin-bottom:6px;}
   .hint{font-size:10px;margin-bottom:12px;line-height:1.5;}
-
-  /* Chips */
   .chips{gap:6px;margin-bottom:16px;}
   .chip{font-size:10px;padding:6px 11px;border-radius:16px;}
-
-  /* Buttons — large tap targets (min 48px height) */
-  .btn-primary{
-    padding:17px 16px;
-    font-size:11px;
-    letter-spacing:1.8px;
-    border-radius:12px;
-    min-height:52px;
-    -webkit-tap-highlight-color:transparent;
-  }
-  .btn-solution{
-    padding:15px 14px;
-    font-size:10px;
-    letter-spacing:1.3px;
-    margin-top:12px;
-    min-height:50px;
-    gap:8px;
-    -webkit-tap-highlight-color:transparent;
-  }
+  .btn-primary{padding:17px 16px;font-size:11px;letter-spacing:1.8px;border-radius:12px;min-height:52px;-webkit-tap-highlight-color:transparent;}
+  .btn-solution{padding:15px 14px;font-size:10px;letter-spacing:1.3px;margin-top:12px;min-height:50px;gap:8px;-webkit-tap-highlight-color:transparent;}
   .btn-solution svg{width:16px;height:16px;flex-shrink:0;}
-
-  /* Top section gap */
   .top-section{gap:14px;margin-bottom:14px;}
-
-  /* Live preview — shorter */
   #previewCanvas{height:210px !important;}
-
-  /* Result banner */
   .result-banner{padding:20px 14px;border-radius:14px;margin-bottom:14px;}
   .result-tag{font-size:8px;letter-spacing:2px;margin-bottom:8px;}
   .result-tag::before,.result-tag::after{width:20px;}
   .result-number{font-size:1.85rem;letter-spacing:-0.5px;margin-bottom:8px;}
   .result-sub{font-size:10px;word-break:break-all;line-height:1.5;}
-
-  /* Stats */
   .stats-row{grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px;}
   .stat-box{padding:14px 10px;border-radius:12px;}
   .stat-val{font-size:1.35rem;margin-bottom:3px;}
   .stat-name{font-size:8px;letter-spacing:1px;}
-
-  /* Graphs */
   .graphs-row{gap:12px;margin-bottom:14px;}
   .graph-card{border-radius:14px;}
   .graph-header{padding:12px 14px 6px;gap:6px;flex-direction:column;align-items:flex-start;}
@@ -358,76 +343,44 @@ td:first-child{text-align:center;}
   .legend-item{font-size:9px;gap:4px;}
   .legend-dot{width:6px;height:6px;}
   canvas{height:200px !important;}
-
-  /* Table — scrollable, compact */
   .table-wrap{-webkit-overflow-scrolling:touch;}
   table{font-size:11px;min-width:520px;}
   thead th{font-size:8px;letter-spacing:0.8px;padding:9px 9px;}
   td{padding:8px 9px;font-size:10px;}
   .n-badge{width:22px;height:22px;font-size:9px;}
   .root-tag{font-size:7px;padding:1px 5px;margin-left:4px;}
-
-  /* Tabs */
   .tabs-bar{padding:4px;border-radius:10px;margin-bottom:12px;}
   .tab{padding:9px 8px;font-size:9px;letter-spacing:0.5px;}
-
-  /* Bracket canvas */
   #bracketCanvas{height:190px !important;}
-
-  /* Error box */
   .error-box{font-size:12px;padding:12px 14px;border-radius:10px;}
-
-  /* Modal — sheet slides up from bottom */
   .modal-overlay{padding:0;align-items:flex-end;}
-  .modal{
-    border-radius:22px 22px 0 0;
-    max-height:94vh;
-    animation:sheetUp .28s cubic-bezier(.32,1.2,.64,1) both;
-  }
-  @keyframes sheetUp{
-    from{opacity:0;transform:translateY(100%);}
-    to{opacity:1;transform:translateY(0);}
-  }
-  /* Drag handle pill */
-  .modal::before{
-    content:'';display:block;
-    width:40px;height:4px;
-    background:var(--border2);
-    border-radius:2px;
-    margin:12px auto 0;
-  }
+  .modal{border-radius:22px 22px 0 0;max-height:94vh;animation:sheetUp .28s cubic-bezier(.32,1.2,.64,1) both;}
+  @keyframes sheetUp{from{opacity:0;transform:translateY(100%);}to{opacity:1;transform:translateY(0);}}
+  .modal::before{content:'';display:block;width:40px;height:4px;background:var(--border2);border-radius:2px;margin:12px auto 0;}
   .modal-header{padding:12px 18px 14px;}
   .modal-title{font-size:1.2rem;gap:8px;}
   .modal-close{width:32px;height:32px;font-size:15px;}
   .modal-body{padding:14px 16px 32px;max-height:calc(94vh - 76px);}
-
-  /* Solution modal content */
   .sol-answer-box{padding:14px 12px;border-radius:12px;margin-bottom:14px;}
   .sol-answer-label{font-size:8px;letter-spacing:2px;margin-bottom:10px;}
   .sol-answer-val{font-size:1.75rem;margin-bottom:6px;}
   .sol-answer-sub{font-size:10px;word-break:break-all;line-height:1.5;}
-
   .sol-section{margin-bottom:20px;}
   .sol-section-title{font-size:8px;letter-spacing:2px;margin-bottom:10px;}
-
   .step-block{padding:12px 13px;border-radius:12px;margin-bottom:10px;}
   .step-block-header{gap:10px;margin-bottom:9px;}
   .step-number{width:26px;height:26px;font-size:10px;}
   .step-block-title{font-size:12px;padding-top:3px;}
   .step-block-body{font-size:11px;line-height:1.65;padding-left:36px;}
   .step-block-body code{font-size:10px;padding:1px 5px;word-break:break-all;display:inline-block;margin:2px 0;}
-
-  /* Mini iter table in modal */
   .mini-iter{padding:10px 10px;font-size:9px;border-radius:8px;}
   .mi-row{grid-template-columns:22px 1fr 1fr 1fr;gap:4px;padding:5px 0;}
   .mi-row > *:last-child{display:none;}
   .mi-row.hdr > *:last-child{display:none;}
   .mi-n{font-size:9px;}
-
   .sol-summary{padding:13px 13px;font-size:11px;line-height:1.65;border-radius:10px;}
 }
 
-/* ── SMALL-MID PHONES (481px – 640px) ───────────────────── */
 @media(min-width:481px) and (max-width:640px){
   .page{padding:24px 18px 70px;}
   header{margin-bottom:36px;}
@@ -446,7 +399,6 @@ td:first-child{text-align:center;}
   .mi-row.hdr > *:last-child{display:none;}
 }
 
-/* ── TABLET (641px – 768px) ──────────────────────────────── */
 @media(min-width:641px) and (max-width:768px){
   .page{padding:28px 20px 70px;}
   header{margin-bottom:40px;}
@@ -484,7 +436,6 @@ td:first-child{text-align:center;}
   </div>
   <h1>False Position Method<br><em style="font-style:italic">for Exponential Equations</em></h1>
   <p class="subtitle">A professional root-finding solver using the Regula Falsi algorithm with Illinois modification — built for exponential &amp; transcendental functions.</p>
-  <h2>Presented by: Andy Lasala and Francis Mangalindan</h2>
   <div class="header-line"></div>
 </header>
 
@@ -558,7 +509,16 @@ td:first-child{text-align:center;}
       <div><label>Tolerance (ε)</label><input type="number" id="tol" value="0.0001" step="any"></div>
       <div><label>Max Iterations</label><input type="number" id="maxIter" value="50" min="1" max="200"></div>
     </div>
-    <button class="btn-primary" onclick="solve()">▶ &nbsp;Solve Equation</button>
+    <div style="display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center;">
+      <button class="btn-primary" onclick="solve()">▶ &nbsp;Solve Equation</button>
+      <div style="display:flex;align-items:center;gap:10px;background:linear-gradient(135deg,rgba(233,30,140,0.08),rgba(190,24,93,0.04));border:1px solid rgba(233,30,140,0.25);border-radius:12px;padding:12px 16px;white-space:nowrap;">
+        <div style="width:30px;height:30px;border-radius:50%;flex-shrink:0;background:linear-gradient(135deg,#f472b6,#be185d);display:flex;align-items:center;justify-content:center;font-size:13px;">✦</div>
+        <div>
+          <div style="font-family:'Space Mono',monospace;font-size:7px;letter-spacing:2.5px;text-transform:uppercase;color:var(--muted);margin-bottom:3px;">Presented by</div>
+          <div style="font-family:'DM Serif Display',serif;font-size:0.92rem;color:var(--text);letter-spacing:0.2px;">Andy Lasala &amp; Francis Mangalindan</div>
+        </div>
+      </div>
+    </div>
     <button class="btn-solution" id="btnSolution" onclick="openModal()" style="display:none">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
       View Step-by-Step Solution
@@ -874,36 +834,29 @@ function drawCurve(canvas,f,a0,b0,root,rows,showSecant){
   const tY=v=>M+(1-(v-yMin)/(yMax-yMin))*(H-2*M);
 
   ctx.fillStyle='#fff0f5';ctx.fillRect(0,0,W,H);
-  // grid
   ctx.strokeStyle='rgba(249,168,203,0.6)';ctx.lineWidth=1;
   for(let i=0;i<=8;i++){const gx=M+i*(W-2*M)/8,gy=M+i*(H-2*M)/8;
     ctx.beginPath();ctx.moveTo(gx,M);ctx.lineTo(gx,H-M);ctx.stroke();
     ctx.beginPath();ctx.moveTo(M,gy);ctx.lineTo(W-M,gy);ctx.stroke();}
-  // ticks
   ctx.fillStyle='rgba(131,24,67,0.8)';ctx.font=`${Math.round(10*(W<400?.8:1))}px Space Mono,monospace`;
   ctx.textAlign='center';
   for(let i=0;i<=5;i++){const xv=xMin+(xMax-xMin)*i/5;ctx.fillText(xv.toFixed(2),tX(xv),H-M+14);}
   ctx.textAlign='right';
   for(let i=0;i<=5;i++){const yv=yMin+(yMax-yMin)*i/5;ctx.fillText(yv.toFixed(2),M-6,tY(yv)+4);}
-  // axes
   const zY=tY(0),zX=tX(0);
   ctx.strokeStyle='rgba(190,24,93,0.25)';ctx.lineWidth=1.5;
   if(zY>=M&&zY<=H-M){ctx.beginPath();ctx.moveTo(M,zY);ctx.lineTo(W-M,zY);ctx.stroke();}
   if(zX>=M&&zX<=W-M){ctx.beginPath();ctx.moveTo(zX,M);ctx.lineTo(zX,H-M);ctx.stroke();}
-  // shaded bracket region
   const ax=tX(a0),bx=tX(b0);
   if(ax>=M&&bx<=W-M){ctx.fillStyle='rgba(233,30,140,0.06)';ctx.fillRect(ax,M,bx-ax,H-2*M);}
-  // bracket dashes
   [[a0,'rgba(255,107,53,0.65)'],[b0,'rgba(124,58,237,0.65)']].forEach(([xv,col])=>{
     const px=tX(xv);if(px<M||px>W-M)return;
     ctx.strokeStyle=col;ctx.lineWidth=1.5;ctx.setLineDash([5,4]);
     ctx.beginPath();ctx.moveTo(px,M);ctx.lineTo(px,H-M);ctx.stroke();ctx.setLineDash([]);});
-  // secant
   if(showSecant&&rows&&rows.length>=1){
     const r=rows[rows.length-1];
     ctx.strokeStyle='rgba(251,191,36,0.4)';ctx.lineWidth=1;ctx.setLineDash([3,3]);
     ctx.beginPath();ctx.moveTo(tX(r.a),tY(r.fa));ctx.lineTo(tX(r.b),tY(r.fb));ctx.stroke();ctx.setLineDash([]);}
-  // curve
   ctx.strokeStyle='#e91e8c';ctx.lineWidth=2.5;ctx.shadowColor='#e91e8c';ctx.shadowBlur=8;
   ctx.beginPath();let pen=false;
   for(let i=0;i<pts.length;i++){
@@ -912,7 +865,6 @@ function drawCurve(canvas,f,a0,b0,root,rows,showSecant){
     if(i>0&&Math.abs(pts[i].y-pts[i-1].y)>(yMax-yMin)*2)pen=false;
     if(!pen){ctx.moveTo(px,py);pen=true;}else ctx.lineTo(px,py);}
   ctx.stroke();ctx.shadowBlur=0;
-  // root
   if(root!==null){
     const rx=tX(root),ry=zY>=M&&zY<=H-M?zY:tY(f(root));
     ctx.strokeStyle='rgba(16,185,129,0.5)';ctx.lineWidth=1;ctx.setLineDash([4,4]);
@@ -921,7 +873,6 @@ function drawCurve(canvas,f,a0,b0,root,rows,showSecant){
     ctx.beginPath();ctx.arc(rx,ry,8,0,Math.PI*2);ctx.fill();ctx.shadowBlur=0;
     ctx.fillStyle='#10b981';ctx.font='bold 11px Space Mono,monospace';ctx.textAlign='left';
     ctx.fillText(`x ≈ ${fmt(root,5)}`,rx+10,ry-12);}
-  // bound labels
   ctx.font='10px Space Mono,monospace';
   ctx.fillStyle='rgba(190,24,93,0.9)';ctx.textAlign='left';
   if(tX(a0)>=M)ctx.fillText(`a=${a0}`,tX(a0)+4,M+14);
@@ -947,25 +898,20 @@ function drawConv(canvas,rows,tol){
   for(let i=0;i<=5;i++){const yv=yMin+(yMax-yMin)*i/5;ctx.fillText(`1e${yv.toFixed(0)}`,M-6,tY(yv)+4);}
   ctx.textAlign='center';
   rows.forEach((r,i)=>{if(i%Math.max(1,Math.floor(rows.length/6))===0)ctx.fillText(r.n,tX(i),H-M+14);});
-  // tol line
   const ty=tY(Math.log10(tol));
   if(ty>=M&&ty<=H-M){
     ctx.strokeStyle='rgba(239,68,68,0.6)';ctx.lineWidth=1.5;ctx.setLineDash([6,4]);
     ctx.beginPath();ctx.moveTo(M,ty);ctx.lineTo(W-M,ty);ctx.stroke();ctx.setLineDash([]);
     ctx.fillStyle='rgba(239,68,68,0.7)';ctx.textAlign='left';ctx.fillText(`ε=${tol}`,M+4,ty-5);}
-  // fill
   ctx.fillStyle='rgba(233,30,140,0.06)';ctx.beginPath();ctx.moveTo(tX(0),H-M);
   rows.forEach((r,i)=>ctx.lineTo(tX(i),tY(Math.log10(Math.max(r.afc,1e-15)))));
   ctx.lineTo(tX(rows.length-1),H-M);ctx.closePath();ctx.fill();
-  // line
   ctx.strokeStyle='#fbbf24';ctx.lineWidth=2.5;ctx.shadowColor='#fbbf24';ctx.shadowBlur=8;
   ctx.beginPath();rows.forEach((r,i)=>{const px=tX(i),py=tY(Math.log10(Math.max(r.afc,1e-15)));i===0?ctx.moveTo(px,py):ctx.lineTo(px,py);});
   ctx.stroke();ctx.shadowBlur=0;
-  // dots
   rows.forEach((r,i)=>{const px=tX(i),py=tY(Math.log10(Math.max(r.afc,1e-15)));
     ctx.fillStyle=i===rows.length-1?'#10b981':'#fbbf24';ctx.shadowColor=ctx.fillStyle;ctx.shadowBlur=6;
     ctx.beginPath();ctx.arc(px,py,4,0,Math.PI*2);ctx.fill();ctx.shadowBlur=0;});
-  // axis labels
   ctx.fillStyle='rgba(131,24,67,0.5)';ctx.font='11px Space Mono,monospace';
   ctx.textAlign='center';ctx.fillText('Iteration n',W/2,H-M+28);
   ctx.save();ctx.translate(14,H/2);ctx.rotate(-Math.PI/2);ctx.fillText('log₁₀|f(c)|',0,0);ctx.restore();
@@ -1127,4 +1073,3 @@ window.addEventListener('resize',()=>{
 </script>
 </body>
 </html>
-
